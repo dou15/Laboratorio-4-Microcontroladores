@@ -1,0 +1,25 @@
+<circuit type="simulide_1.0" rev="1007" stepSize="1000000" stepsPS="1000000" NLsteps="100000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="Mega-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-12,-308" rotation="0" hflip="1" vflip="1" label="Mega-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps itemtype="MCU" CircId="1_mega2560-63" mainComp="true" Show_id="false" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="1_mega2560-63" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Auto_Load="false" Rst_enabled="true" Ext_Osc="false" Wdt_enabled="false" />
+</item>
+
+<item itemtype="LDR" CircId="LDR-2" mainComp="false" Show_id="true" Show_Val="false" Pos="232,-272" rotation="0" hflip="1" vflip="1" label="LDR" idLabPos="-16,-24" labelrot="0" valLabPos="-16,30" valLabRot="0" Lux="1 Lux" Min_Lux="0 Lux" Max_Lux="1000 Lux" Dial_Step="0 Lux" Gamma="0.8582" R1="127410 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-3" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="188,-100" rotation="0" hflip="1" vflip="1" label="Resistor-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="1000 Ω" />
+
+<item itemtype="RTD" CircId="RTD-6" mainComp="false" Show_id="true" Show_Val="false" Pos="236,-100" rotation="0" hflip="1" vflip="1" label="RTD" idLabPos="11.9322,3.37353" labelrot="0" valLabPos="-16,30" valLabRot="0" Temp="25 ºC" Min_Temp="0 ºC" Max_Temp="200 ºC" Dial_Step="0 ºC" R0="100 Ω" />
+
+<item itemtype="Node" CircId="Node-14" mainComp="false" Pos="212,-100" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Resistor-3-lPin" endpinid="Mega-1-5V00" pointList="172,-100,140,-100" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="RTD-6-rPin" endpinid="Mega-1-GND1" pointList="252,-100,252,-116,140,-116" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="RTD-6-lPin" endpinid="Node-14-0" pointList="220,-100,212,-100" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Mega-1-A0" endpinid="Node-14-1" pointList="140,-140,276,-140,276,-60,212,-60,212,-100" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Node-14-2" endpinid="Resistor-3-rPin" pointList="212,-100,204,-100" />
+
+</circuit>
