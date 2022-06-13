@@ -10,9 +10,5 @@ Se utilizan las bibliotecas:
 
 En el paquete SRC se incluyen el simulador, las bibliotecas utilizadas y el código del programa.
 El archivo .sim contiene el circuito empleado en la simulación.
-<<<<<<< HEAD
-=======
-
 
 Repositorio del Laboratorio https://github.com/dou15/Laboratorio-4-Microcontroladores.git
->>>>>>> 321c12e19b918520914249870522390013914f31

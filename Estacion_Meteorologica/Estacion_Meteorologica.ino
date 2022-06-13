@@ -276,29 +276,17 @@ void displaylcd(){
     delay(3000);
 }    
 
-// interrupción por igualdade de comparación en TIMER1   
+// interrupción por igualdad de comparación en TIMER1   
 ISR(TIMER1_COMPA_vect){   
-  if(counterTimer == 71){ // interrupción en 5 minutos
-    if(eeAddress<EEPROM.length()){ // Si la memoria EEPROM no esta llena  
-        
-      MyObject customVar = {
-        temperatura,
-        humedad,
-        IntensidadLuminosa,
-        windspeedread,   
-        rg11_rain[10],
-      };
-     
-      EEPROM.put(eeAddress, customVar); // Escribe los valores a almacenar en la memoria EEPROM  
-      eeAddress += sizeof(MyObject);  
-    }
-    else{
-      clearMemory();
-      eeAddress = 0;
-      }
+  //if(counterTimer == 71){ // interrupción en 5 minutos
+  if(counterTimer == 2){ // 10 segundos 
+    saveEEPROM();    
     counterTimer++;        
     }    
-  else if(counterTimer == 142){ // interrupción en 10 minutos
+  //else if(counterTimer == 142){ // interrupción en 10 minutos
+  else if(counterTimer == 4){ // interrupción en 10 minutos
+    sendUSART();
+    saveEEPROM();
     counterTimer = 0;
     }    
   else{ 
@@ -307,8 +295,38 @@ ISR(TIMER1_COMPA_vect){
 } // Fin ISR
 
 /////////////////////////////////////////////////////////////////////////////////
+// Limpia memoria eeprom
 void clearMemory(){
   for (int i = 0 ; i < EEPROM.length() ; i++) {
     EEPROM.write(i, 0);
   }
 } 
+
+/////////////////////////////////////////////////////////////////////////////////
+// Salva datos en memoria eeprom
+void saveEEPROM(){
+  if(eeAddress<EEPROM.length()){ // Si la memoria EEPROM no esta llena  
+            
+    MyObject customVar = {
+      temperatura,
+      humedad,
+      IntensidadLuminosa,
+      windspeedread,   
+      rg11_rain[10],
+    };     
+    
+      EEPROM.put(eeAddress, customVar); // Escribe los valores a almacenar en la memoria EEPROM  
+      eeAddress += sizeof(MyObject);  
+    }
+    else{
+      clearMemory();
+      eeAddress = 0;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+// Transfiere datos USART
+void sendUSART(){
+  MyObject customVar2;
+  EEPROM.get(eeAddress, customVar2);  
+}

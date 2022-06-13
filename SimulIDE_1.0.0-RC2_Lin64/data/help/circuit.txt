@@ -1,0 +1,20 @@
+Property: (default value)
+
+- Draw Grid: (true)
+
+- Show Scrollbar: (false)
+
+- Animate: (false)
+   Wires will get Red if Volts>2.5, Blue otherwise.
+   Login Pins will show type and logic state.
+
+- Canvas Refresh: (20)
+   Number of Circuit updates/redraws per second.
+
+- Auto Backup Secs: (15)
+   Time interval in seconds for Circuit to check for changes.
+   Save Circuit backup if there are changes.
+   Setting time to 0 disables Auto Backup.
+
+More Info:
+http://simulide.blogspot.com/p/blog-page_15.html
